@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="never">
+    <title>userinfo</title>
+    <script src="../jquery/jquery-1.8.3.min.js"></script>
+    <script src="../plugins/layui/layui.js"></script>
+    <script src="../jqgrid/js/jquery.jqGrid.min.js"></script>
+    <script src="../jqgrid/js/i18n/grid.locale-cn.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/FormParams.js"></script>
+
+    <link rel="stylesheet" href="../plugins/layui/css/layui.css" />
+    <link rel="stylesheet" href="../jqgrid/theme/smoothness/jquery-ui.css"/>
+    <link rel="stylesheet" href="../jqgrid/css/ui.jqgrid.css" />
+
+</head>
+<body>
+<div class="admin-main" id="admin-main-params">
+    <blockquote class="layui-elem-quote">
+        <div class="layui-inline">
+            <label class="layui-form-label">地接名称</label>
+            <div class="layui-input-block">
+                <input class="layui-input " type="text" name="name"  />
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">团号</label>
+            <div class="layui-input-block">
+                <input class="layui-input " type="text" name="teamNo" />
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <a class="layui-btn layui-btn-small" id="searchBtn"
+               href="javascript:void(0);">
+                搜索 </a>
+
+            <a class="layui-btn layui-btn-small" id="updateLocalPlace"
+               href="javascript:void(0);">
+                修改
+            </a>
+            <a class="layui-btn layui-btn-small" id="delLocalPlace"
+               href="javascript:void(0);">
+                删除
+            </a>
+            <a class="layui-btn layui-btn-small" id="addLocalPlace"
+               href="javascript:void(0);">
+                新增
+            </a>
+        </div>
+
+    </blockquote>
+
+</div>
+
+<div class="jqGrid_wrapper">
+    <table id="tableDiv"></table>
+    <div id="pagerDiv"></div>
+
+</div>
+
+</body>
+</html>
+<script src="js/uinfo.js"></script>
