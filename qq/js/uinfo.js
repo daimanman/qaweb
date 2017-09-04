@@ -1,12 +1,20 @@
-layui.use([],function(){
+layui.use(['form'],function(){
     var $ = layui.jquery,
         layer = layui.layer,
         formUtils = yihg_utils_fun,
         jqGridTabObj = $("#tableDiv");
+    var form = layui.form();
     var formatFun = {
         getQIcon:function(cellVal,option,rowObj){
             return formUtils.getQIcon(rowObj["uid"]);
-        }
+        },
+        getSexIcon:function(cellVal,option,rowObj){
+            var icon = {"1":"<icon class='fa fa-male fa-2x ' style='color:blue;'/>","2":"<icon class='fa fa-female  fa-2x' style='color:indianred;' />"};
+            if(rowObj["sex"]){
+                return icon[rowObj["sex"]+""];
+            }
+            return "<icon class='fa fa-meh-o  fa-2x'/>";
+    }
     }
     var opGrid = {
         reSize: function () {
@@ -33,6 +41,7 @@ layui.use([],function(){
                 colModel: [
                     {name: 'id',index: 'id',width: 80, align: "center", sortable: false,label:"ID"},
                     {name: 'icon',index: 'id',width: 80, align: "center", sortable: false,label:"ICON",formatter:formatFun.getQIcon},
+                    {name: 'sex',index: 'id',width: 80, align: "center", sortable: false,label:"性别",formatter:formatFun.getSexIcon},
                     {name: 'uid',index: 'uid',width: 80, align: "center", sortable: false,label:"UID"},
                     {name: 'nickname',index: 'nickname',width: 80, align: "center", sortable: false,label:"昵称"},
                     {name: 'age',index: 'age',width: 80, align: "center", sortable: false,label:"年龄"},
