@@ -104,6 +104,11 @@ var navs = [{
             "title": "uinfo",
             "icon": "fa-github",
             "href": "qq/info_list.html"
+        },
+        {
+            "title": "photo",
+            "icon": "fa-github",
+            "href": "qq/photo_list.html"
         }
 	]
 }];
