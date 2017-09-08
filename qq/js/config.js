@@ -1,5 +1,6 @@
 var _webConfig = {
     "api":"http://localhost:23455/erpcenter-sales-web/",
     "uinfo_list":"/solr/queryUserInfo",
-    "photo_list":"/solr/queryPhotoInfo"
+    "photo_list":"/solr/queryPhotoInfo",
+    "img_list":"/solr/queryImgInfo"
 }

@@ -165,6 +165,24 @@ yihg_utils_fun = {
     ,
 	getQIcon:function(uid){
     	return "<img src='http://qlogo1.store.qq.com/qzone/"+uid+"/"+uid+"/30' />"
+	},
+	parseUrlParams:function(href){
+		var p = {};
+		if(href && href.length > 0){
+			var firstSplits = href.split("?");
+			if(firstSplits.length){
+				var secondSplits = firstSplits[1].split("&");
+				for(var i = 0;i<secondSplits.length;i++){
+					var thirdSplits = secondSplits[i].split("=");
+					if(thirdSplits.length > 1){
+						p[thirdSplits[0]] = thirdSplits[1];
+					}else{
+						p[thirdSplits[0]] = "";
+					}
+				}
+			}
+		}
+		return p;
 	}
 }
 
