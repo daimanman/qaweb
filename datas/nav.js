@@ -109,6 +109,11 @@ var navs = [{
             "title": "photo",
             "icon": "fa-github",
             "href": "qq/photo_list.html"
+        },
+        {
+            "title": "socket",
+            "icon": "fa-github",
+            "href": "qq/wsocket.html"
         }
 	]
 }];

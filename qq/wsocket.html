@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <script type="text/javascript" src="../jquery/jquery-1.8.3.min.js"></script>
+</head>
+<>
+<input id="text" type="text"/>
+<input type="button" id="stn" value="send" /><br/>
+<div id="ct">
+</div>
+
+<br/>
+<input id="text1" type="text"/>
+<input type="button" id="stn1" value="send1" /><br/>
+<div id="ct1">
+</div>
+<br/>
+</body>
+</html>
+<script type="text/javascript">
+    var wsUri ="ws://localhost:23455/erpcenter-sales-web/websocket";
+    var websocket = new WebSocket(wsUri);
+    websocket.onopen = function(evt) {
+        console.info("is open");
+
+    };
+    websocket.onerror = function(evt) {
+        console.info("is error");
+    };
+
+    websocket.onmessage = function(evt) {
+        $("#ct").append(evt.data).append("<br/>");
+    };
+    websocket.onclose = function(evt) {
+        console.info("is close")
+    };
+
+
+    $("#stn").on("click",function(e){
+        var p = {"type":1000,"content":$("#text").val()};
+        websocket.send(JSON.stringify(p));
+    });
+
+</script>
