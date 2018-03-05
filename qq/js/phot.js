@@ -22,12 +22,12 @@ layui.use(['form'],function(){
             var height = $(window).height();//parent.get_MainContainerHeight();
             var searchBox = 120, jqGrid_head = 55, jqGrid_pager = 30, jqGrid_footer = 45;
             height = height - searchBox - jqGrid_head - jqGrid_pager - jqGrid_footer;
-            jqGridTabObj.setGridWidth(width);
+            jqGridTabObj.setGridWidth(width-30);
             jqGridTabObj.setGridHeight(height+70);
         },
         loadGrid: function () {
 
-            var  URL= _webConfig.api+_webConfig.uinfo_list;
+            var  URL= _webConfig.api+_webConfig.phot_list;
             jqGridTabObj.jqGrid({
                 url: URL,
                 datatype: "json",
@@ -39,30 +39,28 @@ layui.use(['form'],function(){
                 rowNum: 10,
                 rowList: [10,15, 30, 50, 100, 500, 1000],
                 colModel: [
-                    {name: 'id',index: 'id',width: 20, align: "center", sortable: false,label:"ID"},
-                    {name: 'icon',index: 'id',width: 30, align: "center", sortable: false,label:"ICON",formatter:formatFun.getQIcon},
-                    {name: 'sex',index: 'id',width: 30, align: "center", sortable: false,label:"性别",formatter:formatFun.getSexIcon},
-                    {name: 'uid',index: 'uid',width: 100, align: "center", sortable: false,label:"UID"},
-                    {name: 'nickname',index: 'nickname',width: 80, align: "center", sortable: false,label:"昵称"},
-                    {name: 'age',index: 'age',width: 30, align: "center", sortable: false,label:"年龄"},
-                    {name: 'career',index: 'career',width: 80, align: "center", sortable: false,label:"职业"},
-                    {name: 'country',index: 'country',width: 50, align: "center", sortable: false,label:"现居国"},
-                    {name: 'province',index: 'province',width: 50, align: "center", sortable: false,label:"现居省"},
-                    {name: 'city',index: 'city',width: 50, align: "center", sortable: false,label:"现居城市"},
-                    {name: 'hco',index: 'hco',width: 50, align: "center", sortable: false,label:"家国"},
-                    {name: 'hp',index: 'uid',width:50, align: "center", sortable: false,label:"家省"},
-                    {name: 'hc',index: 'uid',width: 50, align: "center", sortable: false,label:"家城"},
-                    {name: 'marriage',index: 'marriage',width:30, align: "center", sortable: false,label:"婚姻"},
-                    {name: 'company',index: 'company',width: 80, align: "center", sortable: false,label:"公司"},
-                    {name: 'birthyear',index: 'birthyear',width: 50, align: "center", sortable: false,label:"出生年"},
-                    {name: 'birthday',index: 'birthday',width: 50, align: "center", sortable: false,label:"出生月日"},
-                    {name: 'bloodtype',index: 'bloodtype',width: 30, align: "center", sortable: false,label:"血型"}
+                    {name: 'id',index: 'id',width: 50, align: "center", sortable: false,label:"ID"},
+                    {name: 'pre',index: 'pre',width: 60, align: "center", sortable: false,label:"pre",formatter:function(pre,o,rowObj){
+                        return "<img width='100' height='100' src='"+pre+"'/>";
+                    }},
+                    {name: 'name',index: 'name',width: 60, align: "center", sortable: false,label:"name"},
+                    {name: 'totalnum',index: 'totalnum',width: 30, align: "center", sortable: false,label:"totalnum"},
+                    {name: 'allow_access',index: 'allow_access',width: 30, align: "center", sortable: false,label:"ICON"},
+                    {name: 'comment',index: 'comment',width: 30, align: "center", sortable: false,label:"comment"},
+                    {name: 'uid',index: 'uid',width: 60, align: "center", sortable: false,label:"UID"},
+                    {name: 'desc',index: 'desc',width: 180, align: "center", sortable: false,label:"desc"},
+
+                    {name: 'createtime',index: 'createtime',width: 60, align: "center", sortable: false,label:"time",formatter:function(time,opt,rowObj){
+                        var date = new Date(time*1000);
+                        return date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();
+                    }}
+
                 ],
                 regional : 'cn',
                 pager: "#pagerDiv",
                 viewrecords: true,
                 caption: "",
-                multiselect:true,
+                multiselect:false,
                 postData:formUtils.getParams('admin-main-params'),
                 jsonReader:{
                     id:"id",
