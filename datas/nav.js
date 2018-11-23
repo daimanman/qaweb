@@ -99,7 +99,12 @@ var navs = [{
         "title": "子窗体中打开选项卡",
         "icon": "fa-github",
         "href": "qq/user_list.html"
-    },
+	},
+	{
+		"title": "uinfo-1",
+		"icon": "fa-github",
+		"href": "qq/info_list.1.html"
+	},
         {
             "title": "uinfo",
             "icon": "fa-github",
