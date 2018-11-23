@@ -47,13 +47,12 @@
 
     <div class="flex-item" v-for=" (img,index)  in imgs ">
         <div class="p-img" :imgid="img.id" >
-            <img  v-bind:src="img.murl" @click="showBigImg" :url="img.url" :index="index" />
+            <img  v-bind:src="img.pre" @click="showBigImg" :url="img.url" :index="index" />
         </div>
         <div class="p-name">
             <span class="name" :title="img.poiname" >{{ img.uploadtime }}</span>
         </div>
     </div>
-
 </div>
 
 

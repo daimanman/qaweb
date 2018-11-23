@@ -5,10 +5,10 @@ var _webConfigSolr = {
     "img_list":"/solr/queryImgInfo"
 }
 var _webConfig = {
-    "api":"http://localhost:23455/erpcenter-sales-web/",
-    "uinfo_list":"/qes/queryUserList",
-    "phot_list":"/qes/queryPhotList",
-    "emot_list":"/qes/queryEmotList",
-    "photo_list":"/solr/queryPhotoInfo",
-    "img_list":"/solr/queryImgInfo"
+    "api":"http://localhost:8080/",
+    "uinfo_list":"queryUserPage",
+    "phot_list":"queryPhotoPage",
+    "photo_list":"queryPhotoPage",
+    "img_list":"queryPhotoImgPage",
+    "emot_list":"/qes/queryEmotList"
 }
